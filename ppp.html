@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        h1 { display: inline-block; }
+        .rightcolumn h2 {
+            font-size: 52px; 
+            text-align: center;
+            padding-bottom: 10%;
+        }
+        a { margin: 10px; }
+        header {
+            position: fixed;
+            width: 100%; 
+            height: 75px;
+
+            padding-left: 20px;
+            
+            color: #EEEEEE;
+            background: rgba(60, 59, 57, 0.7);
+            border: 1px solid #393E46;
+        }
+        .navbar {
+            margin-right: 3%;
+            font-size: 24px;
+            display: inline-block;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .downbutton { height: 12px; width: 20px; }
+        .navbar a {
+            color:#e7e7e7;
+            text-decoration: none;
+        }
+
+        body { margin: 0%; }
+
+        .grid-container {
+            display: grid;
+            grid-template-areas:
+            'pic1 right'
+            'left pic2';
+            gap: 0px;
+            background-color: #f7f7f7;
+        }
+        .grid-container > div {
+            
+            font-size: 28px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: #393E46;
+        }
+        .leftcolumn {
+            grid-area: left;
+            text-align: left;
+
+            padding: 25% 10% 0%;
+            
+        }
+        .rightcolumn {
+            grid-area: right;
+            text-align: right;
+
+            padding: 15% 10% 0%;
+        }
+        
+        .image1 { grid-area: pic1; }
+        .image2 { grid-area: pic2; }
+
+
+        .open-button {
+            font-size: 20px;
+
+            padding: 25px;
+            margin: 30%;
+            
+            color: #F7F7F7;
+            background-color: #393E46;
+            border: 2px solid #70d5bf;
+            border-radius: 50px/50px;
+            
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease-out;
+        }
+        .open-button:hover {
+            background: #70d5bf;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            transition: opacity 500ms;
+            visibility: hidden;
+            opacity: 0;
+        }
+        .overlay:target {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .popup {
+            margin: 50px auto;
+            padding: 50px;
+            background: #F7F7F7;
+            border-radius: 5px;
+            border-color: #393E46;
+
+            width: 30%;
+            height: 45%;
+
+            align-items: center;
+
+            position: relative;
+            /*transition: all 5s ease-in-out;*/
+        }
+        .popup h2 {
+
+            color: #393E46;
+            
+            font-size: 28px;
+            text-align: center;
+            font-family:'Courier New', Courier, monospace;
+        }
+        .popup .comment { font-size: 10px;}
+        .popup .submit-button {
+
+            font-size: 16px;
+            padding: 16px;
+            margin: 36%;
+            
+            color: #F7F7F7;
+            background-color: #393E46;
+            border: 1px solid #70d5bf;
+            border-radius: 90px;
+            
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .popup .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+
+            font-size: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #393E46;
+        }
+        .popup .close:hover {
+            color: #d80606;
+        }
+        .popup .content {
+            height: 350px;
+            font-size: 14px;
+            color:#393E46;
+            overflow: auto;
+        }
+
+        .popup .content label {
+            margin: 0%
+        }
+        .popup .content input{
+            width: 65%;
+            margin-top: 30px;
+            border: 0px;
+            background-color: #F7F7F7;
+            font-style: italic;
+        }
+        .underline{
+            text-decoration: underline;
+            border-bottom: 1px;
+            color: #000;
+            width: 100%;
+            display: block;
+        }
+
+        @media screen and (max-width: 1000px){
+            .box{
+                width: 50%;
+            }
+            .popup{
+                width: 50%;
+            }
+        }
+
+        
+        footer {
+            box-sizing: border-box;
+            
+            bottom: 0px;
+            display: flex;
+
+            color: #F7F7F7;
+            background-image: url("пікс/guy3.jpg");
+            opacity: 0.7;
+            border: 1px solid #393E46;
+        }
+        .footer-container {
+            display: grid;
+            grid-template-areas:
+            'media address'
+            'mail mail'
+            'logo logo';
+
+            padding: 20px;
+            height: 300px;
+            width: 100%;
+        }
+        .footer-container > div {
+            
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: #e7e7e7;
+        }
+        .media { 
+            grid-area: media;
+            font-size: 32px;
+        }
+        .address { 
+            grid-area: address;
+            text-align: right;
+            font-size: 16px;
+        }
+        .mail { 
+            grid-area: mail; 
+        }
+        .logo {
+            height: 50px;
+            grid-area: logo;
+            font-size: 32px;
+            text-align: right;
+        }
+    
+    </style>
+</head>
+
+<body>
+    <header class="header-container">
+        <h1 id="Logo">Музи та Цимбали</h1>
+        <nav class="navbar">
+            <a href="#start">Початок <img class="downbutton" src="пікс/down.png"></a>
+            <a href="#apply">Участь <img class="downbutton" src="пікс/down.png"></a>
+            <a href="#info">Контакти <img class="downbutton" src="пікс/down.png"></a>
+        </nav>
+    </header>
+
+    <div class="grid-container">
+        <div class="pic1">
+            <img src="/Users/Admin/Desktop/mio salvatore/Веб/пікс/lady1.png" alt = "singing lady" >
+        </div>
+        <div class="rightcolumn" id="start">
+            <h2>Velvet Season Contest 2022</h2>
+            <p>Затишний вокальний конкурс у серці Києва.</p>
+            <p>Запрошуємо бажаючий взяти участь у конкурсі для джазових та естрадних виконавців.</p>
+        </div>
+        <div class="leftcolumn" id="apply">
+            <p>Якщо ви - талановита та творча людина, що хоче поділитись своїм мистецтвом та продемонструвати свої вокальні здібності, то цей конкурс для Вас!</p>
+            <p>Подавайте заявку на участь у щорічному конкурсі від спілки Музи та Цимбали вже зараз. </p>
+            <p>&nbsp;</p>
+            <a class = "open-button" href="#popup">Подати заявку</a>
+        </div>
+        <div class="pic2">
+            <img src="/Users/Admin/Desktop/mio salvatore/Веб/пікс/guy2.jpg" alt = "singing guy">
+        </div>
+    </div>
+            
+    <div id="popup" class="overlay">
+        <div class="popup">
+            <h2>Запит на заявку</h2>
+            <a class="close" href="#apply">&times;</a>
+            <div class="content" class="underline">
+                <label for="name">прізвище та ім'я </label>
+                <input type="text" placeholder="Слейчук Анна" name="name" required>
+                <label for="number">контактний номер </label>
+                <input type="text" placeholder="+38(0**)***-**-**" name="number" required>
+                <label for="email">ел.пошта </label>
+                <input type="text" placeholder="example@gmail.com" name="email" required>
+                <p class="comment">*на вказану електронну адресу буде надіслано анкету вигляді гугл-форми</p>
+                <p>&nbsp;</p>         
+                <a class="submit-button" href="#">Надіслати</a>   
+            </div>
+            
+        </div>
+    </div>
+
+
+    <footer class="footer-container" id="info">
+        <div class="media">
+            <p> Більше про нас:
+            <a href ="https://www.instagram.com/slidanenough/"><img src ="пікс/insta.png" height="35" width="35" style="opacity: 0.8;"></a>
+            <a href="https://t.me/privateart"><img src = "пікс/telegram.png" height="35" width="35"></a>
+            <a href="https://www.facebook.com/zelenskiy.official"><img src = "пікс/fb.png" height="35" width="35" style="opacity: 0.6;"></a>
+            </p>
+        </div>
+        <div class="mail">
+            <p>Питання та зауваження надсилайте на пошту:</p>
+            <p><b>muzy.ta.tsymbaly@gmail.com</b></p>
+        </div>
+        <div class="address">
+            <p>Адреса:</p>
+            <p>вул. Щекавицька, 29,</p>
+            <p>м. Київ, Україна</p>
+        </div>
+        <div class="logo">
+            <p><b>Музи та Цимбали</b></p>
+        </div>
+    </footer>
+</body>
+</html>
