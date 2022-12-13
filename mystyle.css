@@ -1,0 +1,264 @@
+@media screen and (max-width: 1000px){
+    .box{
+        width: 50%;
+    }
+    .popup{
+        width: 50%;
+    }
+}
+
+/*HEADER STYLES*/
+
+h1 { display: inline-block; }
+
+header {
+    position: fixed;
+
+    width: 100%; 
+    height: 75px;
+    padding-left: 20px;
+    border: 1px solid #393E46;
+    
+    background: rgba(60, 59, 57, 0.7);
+    color: #EEEEEE;
+}
+.navbar {
+
+    display: inline-block;
+    margin-right: 3%;
+    font-size: 24px;
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.downbutton { 
+    height: 12px; 
+    width: 20px; 
+}
+.navbar a {
+    text-decoration: none;
+    color:#e7e7e7;
+}
+
+
+/*BODY STYLES*/
+
+body { margin: 0%; }
+a { margin: 10px; }
+
+/*body structure*/
+
+.grid-container {
+
+    display: grid;
+    grid-template-areas:
+    'left-image right-text'
+    'left-text right-image';
+    gap: 0px;
+
+    background-color: #f7f7f7;
+}
+.grid-container > div {
+    
+    font-size: 28px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #393E46;
+}
+
+.left-column {
+
+    grid-area: left-text;
+    padding: 25% 10% 0%;
+    text-align: left;
+}
+.right-column {
+
+    grid-area: right-text;
+    padding: 30% 10% 0%;
+    text-align: right;
+}
+
+.image1 { grid-area: left-image; }
+.image2 { grid-area: right-image; }
+
+.rightcolumn h2 {
+
+    padding-bottom: 10%;
+    text-align: center;
+    font-size: 52px; 
+}
+
+/*body button*/
+
+.open-button {
+    
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+
+    padding: 25px;
+    margin: 30%;
+    
+    border: 2px solid #70d5bf;
+    border-radius: 50px/50px;
+    
+    text-decoration: none;
+    font-size: 20px;
+    color: #F7F7F7;
+    background-color: #393E46;
+}
+.open-button:hover {
+    background: #70d5bf;
+}
+
+
+/*POPUP STYLES*/
+
+/*overlay styles*/
+
+.overlay {
+
+    position: fixed;
+    transition: opacity 500ms;
+    visibility: hidden;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+}
+.overlay:target {
+
+    visibility: visible;
+    opacity: 1;
+}
+
+/*popup main styles*/
+
+.popup {
+
+    position: relative;
+    align-items: center;
+
+    margin: 50px auto;
+    padding: 50px;
+    border-radius: 5px;
+    border-color: #393E46;
+    width: 30%;
+    height: 45%;
+
+    background: #F7F7F7;
+}
+.popup h2 {
+    
+    font-size: 28px;
+    text-align: center;
+    font-family:'Courier New', Courier, monospace;
+    color: #393E46;
+}
+.popup .comment { font-size: 10px;}
+.popup .submit-button {
+
+    cursor: pointer;
+
+    padding: 16px;
+    margin: 36%;
+    border-radius: 90px;
+    background-color: #393E46;
+    border: 1px solid #70d5bf;
+
+    font-size: 16px;
+    text-decoration: none;
+    color: #F7F7F7;
+}
+
+/*popup close styles*/
+
+.popup .close {
+
+    position: absolute;
+    top: 20px;
+    right: 30px;
+
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #393E46;
+}
+.popup .close:hover {
+    color: #d80606;
+}
+
+/*popup content styles*/
+
+.popup .content {
+
+    overflow: auto;
+    height: 350px;
+    font-size: 14px;
+    color:#393E46;
+}
+
+.popup .content label {
+    margin: 0%
+}
+.popup .content input{
+    width: 65%;
+    margin-top: 30px;
+    border: 0px;
+    background-color: #F7F7F7;
+    font-style: italic;
+}
+
+/*FOOTER STYLES*/
+
+footer {
+    box-sizing: border-box;
+    
+    bottom: 0px;
+    display: flex;
+
+    background-image: url("asserts/guy3.jpg");
+    opacity: 0.7;
+    border: 1px solid #393E46;
+
+    color: #F7F7F7;
+}
+.footer-container {
+    display: grid;
+    grid-template-areas:
+    'media address'
+    'mail mail'
+    'logo logo';
+
+    padding: 20px;
+    height: 300px;
+    width: 100%;
+}
+.footer-container > div {
+    
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #e7e7e7;
+}
+.media { 
+    grid-area: media;
+    font-size: 32px;
+}
+.address { 
+    grid-area: address;
+    text-align: right;
+    font-size: 16px;
+}
+.mail { 
+    grid-area: mail; 
+}
+.logo {
+    grid-area: logo;
+    height: 50px;
+    font-size: 32px;
+    text-align: right;
+}
