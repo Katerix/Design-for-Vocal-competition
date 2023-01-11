@@ -7,8 +7,11 @@
     }
 }
 
-/*HEADER STYLES*/
 
+/*HEADER STYLES*/
+html {
+    scroll-behavior: smooth;
+}
 h1 { display: inline-block; }
 
 header {
@@ -19,7 +22,7 @@ header {
     padding-left: 20px;
     border: 1px solid #393E46;
     
-    background: rgba(60, 59, 57, 0.7);
+    background: rgba(60, 59, 57, 0.8);
     color: #EEEEEE;
 }
 .navbar {
@@ -42,46 +45,51 @@ header {
     color:#e7e7e7;
 }
 
-
 /*BODY STYLES*/
 
-body { margin: 0%; }
+body { 
+    margin: 0%; 
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
 a { margin: 10px; }
 
 /*body structure*/
 
 .grid-container {
-
     display: grid;
     grid-template-areas:
     'left-image right-text'
     'left-text right-image';
-    gap: 0px;
-
-    background-color: #f7f7f7;
+    background-color: #F7F7F7;
 }
 .grid-container > div {
-    
+    display: block;
     font-size: 28px;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #F7F7F7;
     color: #393E46;
 }
 
 .left-column {
-
     grid-area: left-text;
-    padding: 25% 10% 0%;
+    height: 55%;
+    padding: 25% 10% 20%;
     text-align: left;
 }
 .right-column {
-
     grid-area: right-text;
-    padding: 30% 10% 0%;
+    height: 55%;
+    padding: 30% 10% 15%;
     text-align: right;
 }
 
-.image1 { grid-area: left-image; }
-.image2 { grid-area: right-image; }
+.image1 { 
+    grid-area: left-image; 
+}
+.image2 { 
+    grid-area: right-image; 
+}
 
 .rightcolumn h2 {
 
@@ -197,7 +205,7 @@ a { margin: 10px; }
 
 .popup .content {
 
-    overflow: auto;
+    overflow: hidden;
     height: 350px;
     font-size: 14px;
     color:#393E46;

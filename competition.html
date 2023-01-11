@@ -6,35 +6,36 @@
     <meta name="keywords" content="Vocal, Music, Kyiv, Ukraine, Competition">
     <meta name="author" content="Музи та цимбали">
     <link rel="stylesheet" href="mystyle.css">
+    <script type="text/javascript" src="myscript.js"></script>
 </head>
 
 <body>
     <header class="header-container">
         <h1 id="logo">Музи та Цимбали</h1>
         <nav class="navbar">
-            <a href="#start">Початок <img class="downbutton" src="asserts/down.png"></a>
-            <a href="#apply">Участь <img class="downbutton" src="asserts/down.png"></a>
-            <a href="#info">Контакти <img class="downbutton" src="asserts/down.png"></a>
+            <a onclick="goToStart()">Початок <img class="downbutton" src="asserts/down.png"></a>
+            <a onclick="goToApply()">Участь <img class="downbutton" src="asserts/down.png"></a>
+            <a onclick="goToFooter()">Контакти <img class="downbutton" src="asserts/down.png"></a>
         </nav>
     </header>
 
     <div class="grid-container">
-        <div class="left-image">
-            <img src="/Users/Admin/Desktop/mio salvatore/Веб/asserts/lady1.png" alt = "singing lady" >
+        <div class="left-image" onmousewheel="goToApply()">
+            <img src="C:\Users\kaate\OneDrive\Desktop\mio salvatore\Веб\asserts\lady1.png" width="770" height="755">
         </div>
-        <div class="right-column" id="start">
+        <div class="right-column" id="start" onmousewheel="goToApply()">
             <h2>Velvet Season Contest 2022</h2>
             <p>Затишний вокальний конкурс у серці Києва.</p>
             <p>Запрошуємо бажаючий взяти участь у конкурсі для джазових та естрадних виконавців.</p>
         </div>
-        <div class="left-column" id="apply">
+        <div class="left-column" id="apply"onmousewheel="goToStart()">
             <p>Якщо ви - талановита та творча людина, що хоче поділитись своїм мистецтвом та продемонструвати свої вокальні здібності, то цей конкурс для Вас!</p>
             <p>Подавайте заявку на участь у щорічному конкурсі від спілки Музи та Цимбали вже зараз. </p>
             <p>&nbsp;</p>
             <a class = "open-button" href="#popup">Подати заявку</a>
         </div>
-        <div class="right-image">
-            <img src="/Users/Admin/Desktop/mio salvatore/Веб/asserts/guy2.jpg" alt = "singing guy">
+        <div class="right-image" onmousewheel="goToStart()">
+            <img src="C:\Users\kaate\OneDrive\Desktop\mio salvatore\Веб\asserts\guy2.jpg" width="770" height="755">
         </div>
     </div>
             
@@ -58,7 +59,7 @@
     </div>
 
 
-    <footer class="footer-container" id="info">
+    <footer class="footer-container" id="info" onmousewheel="goToApply()">
         <div class="media">
             <p> Більше про нас:
             <a href ="https://www.instagram.com/slidanenough/"><img src ="asserts/insta.png" height="35" width="35" style="opacity: 0.8;"></a>
